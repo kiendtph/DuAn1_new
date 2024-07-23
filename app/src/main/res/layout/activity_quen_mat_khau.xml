@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".taikhoan.QuenMatKhauActivity"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Quên Mật khẩu"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="Nhập email"
+        android:id="@+id/edt_QMK_Email"
+        android:background="@drawable/custom_botron"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_botron"
+        android:textSize="30dp"
+        app:backgroundTint="@null"
+        android:text="Lấy lại mật khẩu"
+        android:id="@+id/btn_LayLaiMK"
+        android:textColor="@color/black"/>
+</LinearLayout>
