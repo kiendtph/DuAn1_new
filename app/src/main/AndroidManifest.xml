@@ -13,6 +13,15 @@
         android:theme="@style/Theme.DuAn1_Nhom6_new"
         tools:targetApi="31">
         <activity
+            android:name=".taikhoan.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".taikhoan.NhanVienActivity"
+            android:exported="false" />
+        <activity
+            android:name=".taikhoan.NguoiDungActivity"
+            android:exported="false" />
+        <activity
             android:name=".taikhoan.QuenMatKhauActivity"
             android:exported="false" />
         <activity

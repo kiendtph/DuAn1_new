@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/ql_sanPham_nv"
+        android:title="Quản lý sản phẩm"
+        android:icon="@drawable/san_pham"/>
+    <item android:id="@+id/ql_donHang_nv"
+        android:title="Quản lý đơn hàng"
+        android:icon="@drawable/don_hang"/>
+    <group android:checkableBehavior="single">
+        <item android:title="Thống kê">
+            <menu>
+                <item android:id="@+id/top10_nv"
+                    android:title="Top 10 bán chạy"
+                    android:icon="@drawable/top10"/>
+                <item android:id="@+id/doanh_thu_nv"
+                    android:title="Doanh thu"
+                    android:icon="@drawable/doanh_thu"/>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Người dùng">
+            <menu>
+                <item android:id="@+id/doi_mk_nv"
+                    android:title="Đổi mật khẩu"
+                    android:icon="@drawable/doi_mk"/>
+                <item android:id="@+id/dang_xuat_nv"
+                    android:title="Đăng xuất"
+                    android:icon="@drawable/dang_xuat"/>
+            </menu>
+        </item>
+    </group>
+</menu>
