@@ -13,9 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.kiendtph37589.duan1_nhom6_new.ChiTietSPActivity;
 import com.kiendtph37589.duan1_nhom6_new.DTO.SanPhamDTO;
 import com.kiendtph37589.duan1_nhom6_new.R;
+import com.kiendtph37589.duan1_nhom6_new.Show_SanPham;
+import com.kiendtph37589.duan1_nhom6_new.taikhoan.ChiTietSPActivity;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class item_tt_Adapter extends RecyclerView.Adapter<item_tt_Adapter.ViewHo
     public item_tt_Adapter(Context context, List<SanPhamDTO> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public item_tt_Adapter(Show_SanPham context, List<SanPhamDTO> list) {
     }
 
     @NonNull
@@ -61,9 +65,9 @@ public class item_tt_Adapter extends RecyclerView.Adapter<item_tt_Adapter.ViewHo
         TextView Gia, TenSp;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            anhSp = itemView.findViewById(R.id.img_anh_sp_trangChu);
-            Gia = itemView.findViewById(R.id.tv_giasp_trangChu);
-            TenSp = itemView.findViewById(R.id.tv_tensp_trangChu);
+            anhSp = itemView.findViewById(R.id.imv_anh_sp_trangchu);
+            Gia = itemView.findViewById(R.id.tv_giasp_trangchu);
+            TenSp = itemView.findViewById(R.id.tv_tensp_trangchu);
         }
     }
 }

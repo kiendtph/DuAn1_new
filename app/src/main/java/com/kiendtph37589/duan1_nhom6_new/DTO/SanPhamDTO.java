@@ -4,20 +4,24 @@ import java.io.Serializable;
 
 public class SanPhamDTO implements Serializable {
     private String maSp;
+
     private String anh;
     private String tenSP;
     private Long gia;
+
     private String maHang;
     private Long time;
     private String moTa;
     private long kichCo;
-    private String thuonghieu;
+    private  String thuonghieu;
+//    private Long soLuong;
 
     public SanPhamDTO() {
     }
 
-    public SanPhamDTO(String maSp, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo) {
+    public SanPhamDTO(String maSp, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo, String thuonghieu, Long soLuong) {
         this.maSp = maSp;
+
         this.anh = anh;
         this.tenSP = tenSP;
         this.gia = gia;
@@ -26,6 +30,7 @@ public class SanPhamDTO implements Serializable {
         this.moTa = moTa;
         this.kichCo = kichCo;
         this.thuonghieu = thuonghieu;
+//        this.soLuong = soLuong;
     }
 
     public String getMaSp() {
@@ -91,6 +96,7 @@ public class SanPhamDTO implements Serializable {
     public void setKichCo(long kichCo) {
         this.kichCo = kichCo;
     }
+
     public String getThuonghieu() {
         return thuonghieu;
     }
@@ -98,4 +104,12 @@ public class SanPhamDTO implements Serializable {
     public void setThuonghieu(String thuonghieu) {
         this.thuonghieu = thuonghieu;
     }
+
+//    public Long getSoLuong() {
+//        return soLuong;
+//    }
+//
+//    public void setSoLuong(Long soLuong) {
+//        this.soLuong = soLuong;
+//    }
 }

@@ -20,7 +20,7 @@
             android:name=".Show_SanPham"
             android:exported="false" />
         <activity
-            android:name=".ChiTietSPActivity"
+            android:name=".taikhoan.ChiTietSPActivity"
             android:exported="false" />
         <activity
             android:name=".taikhoan.AdminActivity"
@@ -40,9 +40,7 @@
         <activity
             android:name=".taikhoan.DangNhapActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ChaoActivity"
             android:exported="true">
