@@ -1,4 +1,6 @@
 package com.kiendtph37589.duan1_nhom6_new.Fragment;
 
-public class Frag_DonHang {
+import androidx.fragment.app.Fragment;
+
+public class Frag_DonHang extends Fragment {
 }
