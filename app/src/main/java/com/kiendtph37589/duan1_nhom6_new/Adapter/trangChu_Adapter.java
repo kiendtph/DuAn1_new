@@ -47,6 +47,7 @@ public class trangChu_Adapter extends RecyclerView.Adapter<trangChu_Adapter.View
         itemTtAdapter = new item_tt_Adapter(context, list.get(position).getSanPham());
         holder.rc_list.setAdapter(itemTtAdapter);
         LinearLayoutManager manager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false);
+        holder.rc_list.setLayoutManager(manager);
         holder.xemThem.setText("Xem thêm");
         Log.e("TAG", "onBindViewHolder: "+list.get(position).getSanPham().get(0).getTenSP() );
         holder.xemThem.setOnClickListener(new View.OnClickListener() {
