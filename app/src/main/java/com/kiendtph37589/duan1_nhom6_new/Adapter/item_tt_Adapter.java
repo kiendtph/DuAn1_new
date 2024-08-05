@@ -37,7 +37,8 @@ public class item_tt_Adapter extends RecyclerView.Adapter<item_tt_Adapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Glide.with(context).load(list.get(position).getAnh()).error(R.drawable.baseline_crop_original_24).into(holder.anhSp);
+        Glide.with(context).load(list.get(position).getAnh())
+                .error(R.drawable.baseline_crop_original_24).into(holder.anhSp);
         holder.TenSp.setText(list.get(position).getTenSP());
         holder.Gia.setText("Giá: " + list.get(position).getGia() + " VND");
         holder.itemView.setOnClickListener(new View.OnClickListener() {

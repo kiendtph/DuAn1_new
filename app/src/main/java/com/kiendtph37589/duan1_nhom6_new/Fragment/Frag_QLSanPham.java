@@ -3,7 +3,6 @@ package com.kiendtph37589.duan1_nhom6_new.Fragment;
 import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,6 +26,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -34,6 +36,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 import com.kiendtph37589.duan1_nhom6_new.Adapter.SanPhamAdapter;
 import com.kiendtph37589.duan1_nhom6_new.Adapter.thuongHieu_Adapter;
 import com.kiendtph37589.duan1_nhom6_new.DTO.HangDTO;
@@ -41,14 +48,7 @@ import com.kiendtph37589.duan1_nhom6_new.DTO.SanPhamDTO;
 import com.kiendtph37589.duan1_nhom6_new.R;
 import com.kiendtph37589.duan1_nhom6_new.taikhoan.AdminActivity;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
 public class Frag_QLSanPham extends Fragment {
-    private static final String TAG = "Frag_QLSanPham";
-
     Uri uri;
     private int change = 0;
     ImageView anh;
@@ -65,47 +65,27 @@ public class Frag_QLSanPham extends Fragment {
 
 
     public void setUri(Uri uri) {
-        if (uri != null) {
-            this.uri = uri;
-            Log.d(TAG, "Uri set: " + uri.toString());
-            anh.setImageURI(uri);
-            upanh(uri);
-        } else {
-            Log.e(TAG, "Uri is null");
-        }
+        this.uri = uri;
+        anh.setImageURI(uri);
+        upanh(uri);
     }
 
     private void upanh(Uri uri) {
-        if (uri == null) {
-            Log.e(TAG, "Uri is null, cannot upload image");
-            return;
-        }
-
-        if (masp.isEmpty()) {
-            Log.e(TAG, "masp is empty, cannot upload image");
-            return;
-        }
-
         StorageReference storage;
         storage = FirebaseStorage.getInstance().getReference("imge").child(masp);
         storage.putFile(uri)
                 .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                        if (task.isSuccessful()) {
+                        if (task.isComplete()) {
                             storage.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
-                                    if (task.isSuccessful()) {
+                                    if (task.isComplete()) {
                                         linkanh = task.getResult().toString();
-                                        Log.d(TAG, "Image uploaded successfully, URL: " + linkanh);
-                                    } else {
-                                        Log.e(TAG, "Failed to get download URL");
                                     }
                                 }
                             });
-                        }else {
-                            Log.e(TAG, "Image upload failed", task.getException());
                         }
                     }
                 });
@@ -132,7 +112,6 @@ public class Frag_QLSanPham extends Fragment {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
-                    Log.e(TAG, "Error getting data", error);
                     return;
 
                 }
@@ -321,9 +300,8 @@ public class Frag_QLSanPham extends Fragment {
 
     private void themanh() {
         AdminActivity adminActivity = (AdminActivity) getActivity();
-        if (adminActivity != null) {
-            adminActivity.yeucauquyen(getContext());
-        }
+        adminActivity.yeucauquyen(getContext());
+
     }
 
 
@@ -337,6 +315,8 @@ public class Frag_QLSanPham extends Fragment {
             Toast.makeText(getContext(), "Bạn phải nhập hết", Toast.LENGTH_SHORT).show();
             return;
         }
+        ;
+
 
         sanPhamDTO.setMaSp(masp);
         sanPhamDTO.setTenSP(tensp.getText().toString().trim());
@@ -349,7 +329,7 @@ public class Frag_QLSanPham extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isComplete()) {
-                    Toast.makeText(getContext(), "Thêm sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Thêm thành công sản phẩm", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
 
                 } else {

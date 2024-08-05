@@ -1,18 +1,5 @@
 package com.kiendtph37589.duan1_nhom6_new.taikhoan;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -25,6 +12,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
+import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -115,7 +114,7 @@ public class AdminActivity extends AppCompatActivity {
                     if (fragment != null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(AdminActivity.this);
                         builder.setIcon(R.drawable.canh_bao);
-                        builder.setTitle("Thông báo!");
+                        builder.setTitle("Thng báo!");
                         builder.setMessage("Bạn có chắc muốn đăng xuất?");
                         builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                             @Override
@@ -125,8 +124,7 @@ public class AdminActivity extends AppCompatActivity {
                                         .signOut(AdminActivity.this)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             public void onComplete(@NonNull Task<Void> task) {
-                                                startActivity(new Intent(AdminActivity.this, DangNhapActivity.class));
-                                                finish(); // Đảm bảo activity hiện tại sẽ kết thúc sau khi đăng xuất
+                                                // ...
                                             }
                                         });
 
@@ -171,16 +169,11 @@ public class AdminActivity extends AppCompatActivity {
                 public void onActivityResult(ActivityResult o) {
                     if (o.getResultCode() == RESULT_OK) {
                         Intent intent = o.getData();
-                        if (intent != null) {
-                            Uri uri = intent.getData();
-                            if (uri!= null){
-                                Frag_QLSanPham.setUri(uri);
-                            }else {
-                                Toast.makeText(AdminActivity.this, "Không thể lấy ảnh", Toast.LENGTH_SHORT).show();
-                            }
+                        if (intent == null) {
+                            return;
                         }
                         //để lấy ảnh
-                        
+                        Frag_QLSanPham.setUri(intent.getData());
 
 
                     }
@@ -199,7 +192,7 @@ public class AdminActivity extends AppCompatActivity {
             layAnh();
             return;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
             String[] quyen = new String[]{android.Manifest.permission.READ_MEDIA_IMAGES};
             requestPermissions(quyen, CODE_QUYEN);
             return;
