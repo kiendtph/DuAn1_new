@@ -29,9 +29,6 @@ public class item_tt_Adapter extends RecyclerView.Adapter<item_tt_Adapter.ViewHo
         this.list = list;
     }
 
-    public item_tt_Adapter(Show_SanPham context, List<SanPhamDTO> list) {
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,7 +37,7 @@ public class item_tt_Adapter extends RecyclerView.Adapter<item_tt_Adapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Glide.with(context).load(list.get(position).getAnh())
                 .error(R.drawable.baseline_crop_original_24).into(holder.anhSp);
         holder.TenSp.setText(list.get(position).getTenSP());

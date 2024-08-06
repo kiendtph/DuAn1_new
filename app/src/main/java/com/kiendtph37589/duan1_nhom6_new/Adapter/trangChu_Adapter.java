@@ -1,5 +1,6 @@
 package com.kiendtph37589.duan1_nhom6_new.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -37,7 +38,7 @@ public class trangChu_Adapter extends RecyclerView.Adapter<trangChu_Adapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (list.get(position).getSanPham().size()==0){
             return;
         }
