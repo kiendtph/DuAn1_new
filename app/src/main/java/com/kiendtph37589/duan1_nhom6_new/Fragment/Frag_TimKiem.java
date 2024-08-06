@@ -21,7 +21,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.kiendtph37589.duan1_nhom6_new.Adapter.Adapter_timkiem;
+import com.kiendtph37589.duan1_nhom6_new.Adapter.Timkiem_Adapter;
 import com.kiendtph37589.duan1_nhom6_new.DTO.SanPhamDTO;
 import com.kiendtph37589.duan1_nhom6_new.R;
 
@@ -37,7 +37,7 @@ public class Frag_TimKiem extends Fragment {
     SearchView searchView;
     List<SanPhamDTO> sanPhamDTOList;
     FirebaseFirestore db;
-    Adapter_timkiem adapter_timkiem;
+    Timkiem_Adapter adapter_timkiem;
 
 
     @Nullable
@@ -49,7 +49,7 @@ public class Frag_TimKiem extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         sanPhamDTOList =new ArrayList<>();
-        adapter_timkiem=new Adapter_timkiem(sanPhamDTOList,getContext());
+        adapter_timkiem=new Timkiem_Adapter(sanPhamDTOList,getContext());
 
 
         ed_timKiem = view.findViewById(R.id.ed_timKiem);

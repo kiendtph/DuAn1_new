@@ -1,5 +1,6 @@
 package com.kiendtph37589.duan1_nhom6_new.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +25,7 @@ import com.kiendtph37589.duan1_nhom6_new.DTO.SanPhamDTO;
 import com.kiendtph37589.duan1_nhom6_new.R;
 import com.kiendtph37589.duan1_nhom6_new.taikhoan.ChiTietSPActivity;
 
-public class Adapter_timkiem extends RecyclerView.Adapter<Adapter_timkiem.ViewHolder> implements Filterable {
+public class Timkiem_Adapter extends RecyclerView.Adapter<Timkiem_Adapter.ViewHolder> implements Filterable {
 
     List<SanPhamDTO> list;
     List<SanPhamDTO> listsp;
@@ -32,7 +33,7 @@ public class Adapter_timkiem extends RecyclerView.Adapter<Adapter_timkiem.ViewHo
     item_tt_Adapter adapterItemTt;
 
 
-    public Adapter_timkiem(List<SanPhamDTO> list, Context context) {
+    public Timkiem_Adapter(List<SanPhamDTO> list, Context context) {
         this.list = list;
         this.listsp = list;
         this.context = context;
@@ -46,7 +47,7 @@ public class Adapter_timkiem extends RecyclerView.Adapter<Adapter_timkiem.ViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Glide.with(context).load(list.get(position).getAnh()).
                 error(R.drawable.baseline_crop_original_24).into(holder.anhSp);
         holder.TenSp.setText(list.get(position).getTenSP());
