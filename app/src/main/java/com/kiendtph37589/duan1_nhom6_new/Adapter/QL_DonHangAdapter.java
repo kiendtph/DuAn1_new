@@ -27,7 +27,7 @@ import com.kiendtph37589.duan1_nhom6_new.DTO.DonHangDTO;
 import com.kiendtph37589.duan1_nhom6_new.DTO.SanPhamDTO;
 import com.kiendtph37589.duan1_nhom6_new.DTO.User;
 import com.kiendtph37589.duan1_nhom6_new.R;
-import com.kiendtph37589.duan1_nhom6_new.DTO.Don;
+
 
 
 public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.ViewHolder> {
