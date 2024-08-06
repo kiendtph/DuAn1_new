@@ -54,7 +54,7 @@ public class trangChu_Adapter extends RecyclerView.Adapter<trangChu_Adapter.View
             public void onClick(View v) {
                 Intent intent = new Intent(context, Show_SanPham.class);
                 List<SanPhamDTO> listsp = list.get(position).getSanPham();
-                String [] s = new String[]{listsp.get(position).getMaHang(),list.get(position).getTenHang()};
+                String [] s = new String[]{list.get(position).getMaHang(),list.get(position).getTenHang()};
                  intent.putExtra("list", s);
                 ((Activity)context).startActivity(intent);
             }

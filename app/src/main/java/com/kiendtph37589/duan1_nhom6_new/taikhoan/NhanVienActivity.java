@@ -1,8 +1,11 @@
 package com.kiendtph37589.duan1_nhom6_new.taikhoan;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -149,6 +152,7 @@ public class NhanVienActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         launcher.launch(intent);
     }
+
     private static final int CODE_QUYEN = 1;
 
     @Override

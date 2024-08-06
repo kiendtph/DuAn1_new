@@ -44,6 +44,7 @@ import com.kiendtph37589.duan1_nhom6_new.DTO.HangDTO;
 import com.kiendtph37589.duan1_nhom6_new.DTO.SanPhamDTO;
 import com.kiendtph37589.duan1_nhom6_new.R;
 import com.kiendtph37589.duan1_nhom6_new.taikhoan.AdminActivity;
+import com.kiendtph37589.duan1_nhom6_new.taikhoan.NhanVienActivity;
 
 public class Frag_QLSanPham extends Fragment {
     Uri uri;
@@ -194,6 +195,7 @@ public class Frag_QLSanPham extends Fragment {
             @Override
             public void onClick(View view) {
                 themanh();
+
             }
         });
         thuonghieu.setOnClickListener(new View.OnClickListener() {
