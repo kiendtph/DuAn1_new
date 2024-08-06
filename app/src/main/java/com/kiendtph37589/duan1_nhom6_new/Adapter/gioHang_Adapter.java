@@ -64,7 +64,7 @@ public class gioHang_Adapter extends RecyclerView.Adapter<gioHang_Adapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull gioHang_Adapter.ViewHoler holder, int position) {
         String link = (list_gio.get(position).getMaSanPham());
-  //////////////////////////////////////////////////////////////////////////////////////////de y cho nay khi co fragment     gioHang.tinhTong();
+     gioHang.tinhTong();
         if (link.isEmpty()) {
             return;
         }
