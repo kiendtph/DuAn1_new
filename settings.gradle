@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DuAn1_Nhom6_new"
+rootProject.name = "FASHION IN GEN Z"
 include ':app'
