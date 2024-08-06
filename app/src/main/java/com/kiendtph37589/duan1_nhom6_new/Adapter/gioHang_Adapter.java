@@ -64,27 +64,38 @@ public class gioHang_Adapter extends RecyclerView.Adapter<gioHang_Adapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, @SuppressLint("RecyclerView") int position) {
-        String link = (list_gio.get(position).getMaSanPham());
-     gioHang.tinhTong();
-        if (link.isEmpty()) {
-            return;
-        }
-        Glide.with(context).load(link).
-                error(R.drawable.baseline_crop_original_24).into(holder.anh);
-        SanPhamDTO sp = getSanPham(list_gio.get(position).getMaSanPham());
+        // Lấy mã sản phẩm từ giỏ hàng
+        String maSanPham = list_gio.get(position).getMaSanPham();
+
+        // Tìm đối tượng SanPhamDTO tương ứng
+        SanPhamDTO sp = getSanPham(maSanPham);
         if (sp == null) {
             return;
         }
+
+        // Lấy URL ảnh từ SanPhamDTO
+        String urlAnh = sp.getAnh();
+        if (urlAnh.isEmpty()) {
+            return;
+        }
+
+        // Sử dụng Glide để tải ảnh
+        Glide.with(context)
+                .load(urlAnh)
+                .error(R.drawable.baseline_crop_original_24)
+                .into(holder.anh);
+
+        // Hiển thị thông tin sản phẩm
         holder.tenSP.setText(sp.getTenSP());
         holder.giaSP.setText("Giá: " + sp.getGia() + " VND");
+
         String tenHang = getTenLoai(sp.getMaHang());
         if (tenHang == null) {
             return;
         }
-        holder.loaiSP.setText("Loại: " + tenHang + "");
-        holder.soLuong.setText("Số lượng: " + list_gio.get(position).getSoLuong() + "");
-        holder.kichCo.setText("Kích cỡ: " + list_gio.get(position).getKichCo() + "");
-
+        holder.loaiSP.setText("Loại: " + tenHang);
+        holder.soLuong.setText("Số lượng: " + list_gio.get(position).getSoLuong());
+        holder.kichCo.setText("Kích cỡ: " + list_gio.get(position).getKichCo());
 
         holder.xoa.setOnClickListener(new View.OnClickListener() {
             @Override
