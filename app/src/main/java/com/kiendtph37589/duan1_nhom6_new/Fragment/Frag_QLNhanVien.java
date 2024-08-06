@@ -76,6 +76,7 @@ public class Frag_QLNhanVien extends Fragment {
         View view = inflater.inflate(R.layout.frag_ql_nhan_vien, container,false);
         recyclerView = view.findViewById(R.id.re_nhanVien);
         floatingActionButton = view.findViewById(R.id.float_nhanVien);
+        loadData();
 
 
 
