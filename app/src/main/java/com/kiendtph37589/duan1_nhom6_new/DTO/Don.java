@@ -1,13 +1,13 @@
 package com.kiendtph37589.duan1_nhom6_new.DTO;
 
-public class DonDTO {
+public class Don {
     private String maSP;
     private Long soLuong;
 
-    public DonDTO() {
+    public Don() {
     }
 
-    public DonDTO(String maSP, Long soLuong) {
+    public Don(String maSP, Long soLuong) {
         this.maSP = maSP;
         this.soLuong = soLuong;
     }

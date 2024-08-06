@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:layout_width="200dp"
     android:padding="10dp"
+    app:cardCornerRadius="10dp"
     android:backgroundTint="#D9D9D9"
     android:layout_margin="10dp"
-    app:cardCornerRadius="10dp">
+    android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
         android:orientation="vertical"
-        android:background="@drawable/custom_botron">
+        android:layout_width="200dp"
+        android:padding="10dp"
+        android:background="@drawable/botron"
+        android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
             android:layout_width="180dp"
             android:layout_height="185dp"
@@ -23,8 +23,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/anh_sp"
                 android:scaleType="centerCrop"
-                android:id="@+id/img_anh_sp_trangChu"
-                />
+                android:id="@+id/imv_anh_sp_trangchu"/>
         </androidx.cardview.widget.CardView>
         <TextView
             android:layout_width="match_parent"
@@ -35,15 +34,13 @@
             android:textSize="20dp"
             android:maxLines="1"
             android:layout_marginTop="5dp"
-            android:id="@+id/tv_tensp_trangChu"
-            android:gravity="center"/>
+            android:id="@+id/tv_tensp_trangchu"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Giá sản phẩm"
             android:textColor="#FF0000"
-            android:id="@+id/tv_giasp_trangChu"
-            android:gravity="center"/>
+            android:id="@+id/tv_giasp_trangchu"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

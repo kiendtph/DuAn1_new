@@ -15,11 +15,16 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:text="hãng"
+=======
+                android:text="hangx"
+>>>>>>> origin/master
                 android:textColor="#0C0C0C"
                 android:textStyle="bold"
                 android:id="@+id/tv_tenhang"
                 android:textSize="30dp"/>
+<<<<<<< HEAD
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -28,10 +33,19 @@
 
                 <TextView
                     android:id="@+id/ll_xemthem_moi"
+=======
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+>>>>>>> origin/master
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textColor="#070707"
+<<<<<<< HEAD
                     android:textSize="16dp"
                     android:textStyle="normal" />
 
@@ -39,6 +53,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#151515" />
+=======
+                    android:textStyle="normal"
+                    android:textSize="16dp"
+                    android:id="@+id/ll_xemthem_moi"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#151515"/>
+>>>>>>> origin/master
             </LinearLayout>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
