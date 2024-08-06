@@ -63,37 +63,32 @@ public class gioHang_Adapter extends RecyclerView.Adapter<gioHang_Adapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHoler holder, @SuppressLint("RecyclerView") int position) {
-        // Lấy mã sản phẩm từ giỏ hàng
-        String maSanPham = list_gio.get(position).getMaSanPham();
-
-        // Tìm đối tượng SanPhamDTO tương ứng
-        SanPhamDTO sp = getSanPham(maSanPham);
-        if (sp == null) {
+    public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
+        String link = laylink(list_gio.get(position).getMaSanPham());
+        gioHang.tinhTong();
+        if (link.isEmpty()){
             return;
         }
 
-        // Lấy URL ảnh từ SanPhamDTO
-        String urlAnh = sp.getAnh();
-        if (urlAnh.isEmpty()) {
-            return;
-        }
 
         // Sử dụng Glide để tải ảnh
         Glide.with(context)
-                .load(urlAnh)
+                .load(link)
                 .error(R.drawable.baseline_crop_original_24)
                 .into(holder.anh);
-
+        // Tìm đối tượng SanPhamDTO tương ứng
+        SanPhamDTO sp = getSanPham(list_gio.get(position).getMaSanPham());
+        if (sp == null) {
+            return;
+        }
         // Hiển thị thông tin sản phẩm
         holder.tenSP.setText(sp.getTenSP());
         holder.giaSP.setText("Giá: " + sp.getGia() + " VND");
-
         String tenHang = getTenLoai(sp.getMaHang());
         if (tenHang == null) {
             return;
         }
-        holder.loaiSP.setText("Loại: " + tenHang);
+        holder.loaiSP.setText("Loại: " + tenHang + "");
         holder.soLuong.setText("Số lượng: " + list_gio.get(position).getSoLuong());
         holder.kichCo.setText("Kích cỡ: " + list_gio.get(position).getKichCo());
 
@@ -124,26 +119,7 @@ public class gioHang_Adapter extends RecyclerView.Adapter<gioHang_Adapter.ViewHo
         return link;
     }
         private void them(int position) {
-//        List<Don> listDon = new ArrayList<>();
-//        listDon.add(new Don(list_gio.get(position).getMaSanPham(),list_gio.get(position).getSoLuong()));
-//        String maDon = UUID.randomUUID().toString();
-//        Calendar lich = Calendar.getInstance();
-//        int ngay = lich.get(Calendar.DAY_OF_MONTH);
-//        int thang =lich.get(Calendar.MONTH)+1;
-//        int nam = lich.get(Calendar.YEAR);
-//        String ngayMua = nam+"/"+thang+"/"+ngay;
-//        db.collection("donHang").document(maDon).set(new DonHang(maDon,User.getUid(),listDon,list_sanPham,0,TongGiaSP(position),ngayMua))
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isComplete()){
-//                            Toast.makeText(context, "Đơn hàng đang chờ nhân viên xác nhận", Toast.LENGTH_SHORT).show();
-//                            xoa(list_gio.get(position).getMaGio());
-//                        }else {
-//                            Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
+
             List<String> listMaGio = getListMa();
             if (listMaGio.size()<=0) {
                 Toast.makeText(context, "Vui lòng thêm sản phẩm vào giỏ", Toast.LENGTH_SHORT).show();
@@ -214,16 +190,7 @@ public class gioHang_Adapter extends RecyclerView.Adapter<gioHang_Adapter.ViewHo
             }
         });
     }
-    //    private void guiThongBao() {
-//        String id = UUID.randomUUID().toString();
-//        db.collection("thongBao").document(id).set(new ThongBao(id,user.getUid(),"Có đơn hàng mới của "+user.getUid(),2,new Date().getTime())).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if (task.isComplete()){
-//                }
-//            }
-//        });
-//    }
+
     private String getTenLoai(String maHang) {
         for (HangDTO s : list_hang) {
             if (maHang.equals(s.getMaHang())) {

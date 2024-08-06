@@ -112,7 +112,7 @@ public class Frag_DoanhThu extends Fragment {
                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()) {
+                                if (task.isComplete()) {
                                     Long tong = 0l;
                                     for (DocumentSnapshot snapshot : task.getResult().getDocuments()) {
                                         Long price = snapshot.getLong("giaDon");
