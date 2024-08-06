@@ -38,7 +38,7 @@ public class Show_SanPham extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_show_san_pham);
+        setContentView(R.layout.activity_show_sanpham);
 
         Intent intent = getIntent();
         String[] a = intent.getStringArrayExtra("list");

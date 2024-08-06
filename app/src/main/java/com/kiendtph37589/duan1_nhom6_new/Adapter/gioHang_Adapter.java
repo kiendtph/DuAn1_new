@@ -1,5 +1,6 @@
 package com.kiendtph37589.duan1_nhom6_new.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
@@ -56,13 +57,13 @@ public class gioHang_Adapter extends RecyclerView.Adapter<gioHang_Adapter.ViewHo
 
     @NonNull
     @Override
-    public gioHang_Adapter.ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHoler(((Activity) context).getLayoutInflater().
                 inflate(R.layout.item_sanpham_giohang, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull gioHang_Adapter.ViewHoler holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHoler holder, @SuppressLint("RecyclerView") int position) {
         String link = (list_gio.get(position).getMaSanPham());
      gioHang.tinhTong();
         if (link.isEmpty()) {

@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.kiendtph37589.duan1_nhom6_new.Fragment.Frag_DoanhThu;
 import com.kiendtph37589.duan1_nhom6_new.Fragment.Frag_DoiMatKhau;
 import com.kiendtph37589.duan1_nhom6_new.Fragment.Frag_DonHang;
+import com.kiendtph37589.duan1_nhom6_new.Fragment.Frag_QLDonHang;
 import com.kiendtph37589.duan1_nhom6_new.Fragment.Frag_QLSanPham;
 import com.kiendtph37589.duan1_nhom6_new.Fragment.Frag_Top10;
 import com.kiendtph37589.duan1_nhom6_new.R;
@@ -72,7 +73,7 @@ public class NhanVienActivity extends AppCompatActivity {
                     fragment = frag_qlSanPham;
                     title = "Quản lý sản phẩm";
                 } else if (menuItem.getItemId() == R.id.ql_donHang_nv) {
-                    fragment = new Frag_DonHang();
+                    fragment = new Frag_QLDonHang();
                     title = "Quản lý đơn hàng";
                 } else if (menuItem.getItemId() == R.id.top10_nv) {
                     fragment = new Frag_Top10();

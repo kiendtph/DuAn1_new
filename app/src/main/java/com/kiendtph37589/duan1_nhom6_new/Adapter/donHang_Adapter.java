@@ -1,5 +1,6 @@
 package com.kiendtph37589.duan1_nhom6_new.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -37,7 +38,7 @@ public class donHang_Adapter extends RecyclerView.Adapter<donHang_Adapter.ViewHo
         return new donHang_Adapter.ViewHolder(((Activity) context).getLayoutInflater().
                 inflate(R.layout.item_donhang, parent, false));
     }
-
+    @SuppressLint({"RecyclerView", "ResourceAsColor"})
     @Override
     public void onBindViewHolder(@NonNull donHang_Adapter.ViewHolder holder, int position) {
         String Xanh = "#0000FF";
